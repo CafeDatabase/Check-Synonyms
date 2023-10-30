@@ -8,7 +8,7 @@ is
 	PRAGMA EXCEPTION_INIT(sinonimo_no_valido,-980);
 	filas number;
 begin 
-  dbms_output.enable;
+  dbms_output.enable(1000000);
   for x in (select owner, synonym_name,table_owner,table_name,NVL2(db_link,'@'||db_link,null) db_link 
               from dba_synonyms where owner IN (p_owner,'PUBLIC'))
 			  -- It takes time to check SYS synonyms, but I think it's worth it.
